@@ -1,34 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 
+import ProductData from '../public/ProductData';
+import CartAPI from 'CartAPI';
+import FluxCartApp  from './components/FluxCartApp.react';
 
-class ResturantsApp extends Component {
-  constructor(){
-    super();
-    this.state={
-      filterText: ''
-    };
-  }
 
-  handleUserInput(searchTerm){
-    this.setState({filterText:searchTerm})
-  }
+// load the Product data form the localStorage
+ProductData.init();
 
-  render(){
-    return(
-      <div>
-      <span>foo</span>
-      {' '}
-      bar
-      {' '}
-      <span>baz</span>
-      <button disabled ={true}>this a simple button</button>
-      </div>
-    )
-  }
-}
+// load the mock APi call
+
+CartAPI.getProductData();
 
 
 
 
-render(<ResturantsApp  />, document.getElementById('root'));
+
+render(<FluxCartApp  />, document.getElementById('root'));
